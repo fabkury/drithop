@@ -12,10 +12,9 @@
 setwd('C:/Users/kuryfs/Documents/NLM/Projects/AHA/drithop')
 source('Code/core.R')
 
-App_id <- 'bXyJvmMNySw9nbMVpteH' #'FsUIcsjWl3of2bBRUwea'#'bXyJvmMNySw9nbMVpteH'#'haUlFHdFrZajw1FuOoXI'
-App_code <- '5SRVsuDhVOaXIouQI_6eRw'#'9yulY1Xh1VezUTh9NeeYJw'#'5SRVsuDhVOaXIouQI_6eRw'#'abfsXEqUZC263TaLz2OCmw'
+App_id <- # HERE API APP ID
+App_code <- # HERE API APP CODE
 
-# google_key <- 'AIzaSyCCjoOUpvjcejs6Hta-AAdd1PxbiAKFTdw'
 here_api_matrix_routing_limit <- 100
 
 # TO DO: Remove the ".cit" from below.
@@ -117,7 +116,7 @@ requestHEREYearUSA <- function(year, hospital_filter, type = 'car') {
 #     message('Euclidean-distance nearest hospitlals calculated.')
     
     # Find the true nearest hospital via HERE API Matrix Routing and save into SQL.
-    message('Processing matrix routing.')
+    message('Processing routing.')
     if(type == 'car')
       processMatrixRouting('USA', year, map.cp, map.cp[, sapply(1:5, function(e) { paste0('NH', e) })], hosp)
     else
@@ -185,7 +184,7 @@ requestHEREYearBRA <- function(year, hospital_filter, type = 'car') {
 #     message('Euclidean-distance nearest hospitlals calculated.')
     
     # Find the true nearest hospital via HERE API Matrix Routing and save into SQL.
-    message('Processing matrix routing.')
+    message('Processing routing.')
     if(type == 'car')
       processMatrixRouting('BRA', year, map.cp, map.cp[, sapply(1:5, function(i) { paste0('NH', i) })], hosp)
     else

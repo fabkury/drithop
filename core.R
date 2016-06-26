@@ -18,10 +18,10 @@ message('Execution started at ', curtime(), '.')
 library(RMySQL)
 library(plyr)
 sql_port <- 3306
-sql_database <- 'kuryfs'
-sql_host <- 'ceb-mimic'
-sql_username <- 'kuryfs'
-sql_password <- 'uYeGdfBa7VKJz6TP'
+sql_database <- # SQL DATABASE
+sql_host <- # SQL SERVER
+sql_username <- # USERNAME
+sql_password <- # PASSWORD
 if(!exists('DH_USA', envir = .GlobalEnv))
   assign('DH_USA', list(), envir = .GlobalEnv)
 
@@ -107,15 +107,6 @@ loadHospitalsOneYear <- function(year, ahaid_filter) {
     hosp$CHC <- hosp$Community.hospital.designation=='Community'
     hosp[hosp$CHC, 'CHC'] <- '1' # Normalize with the rest of the years.
     hosp$Community.hospital.designation <- NULL
-#     
-#     browser()
-#     
-#     USA.states.for.join <- USA.states[, c('Name', 'Abbreviation')]
-#     USA.states.for.join$State..physical. <- USA.states.for.join$Name
-#     USA.states.for.join$Name <- NULL
-#     hosp <- join(hosp, USA.states.for.join, type = 'left', by = 'State..physical.')
-#     hosp$MSTATE <- hosp$Abbreviation
-#     hosp$Abbreviation <- NULL
   }
   
   # Add state abbreviations in year 2011
